@@ -79,6 +79,11 @@ resource "aws_dynamodb_table" "app_state" {
   hash_key     = "PK"
   range_key    = "SK"
 
+  ttl {
+    attribute_name = "ExpiresAt"
+    enabled        = true
+  }
+
   attribute {
     name = "PK"
     type = "S"
